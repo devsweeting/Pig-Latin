@@ -67,6 +67,8 @@
   }
 
 
+
+
 $(document).ready(function() {
   $("#userInput").submit(function(event) {
   console.log(determineIfVowel($("input#words").val()));
