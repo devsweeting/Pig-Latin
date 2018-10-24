@@ -6,10 +6,10 @@
 //     Input Example: "cat"
 //     Output Example: "true"
 //
-// - This program will add "ay" to single-letter words beginning with a vowel
-//     Input Example: "I"
-//     Output Example: "Iay"
-//
+// - For words beginning with a vowel, add "way" to the end.
+//  Input Example: "apple"
+//  Output Example: "appleway"
+
 // -  For words beginning with one or more consonants, move all of the first consecutive consonants to the end, and add "ay".
 //     Input Example: Start
 //     Output Example: artstay
@@ -22,60 +22,56 @@
 //     Input Example: your
 //     Output Example: ouyay
 
-function determineIfVowel(word) {
-  if (word === "a" || word ===  "e"  || word ===  "i"  || word ===  "o"  || word ===  "u") {
-    return true;
-  }
-  else {
-    return false;
-  }
-}
 
-function determineIfWordHasAVowel(word) {
-  var inputCharAt = word.charAt(0);
-  console.log(inputCharAt);
-  if (determineIfVowel(inputCharAt)) {
-    return true;
-  }
-  else {
-    return false;
-  }
-}
 
-function addAyToEndOfSingleVowel(word) {
-  if (determineIfVowel(word) === true) {
-   return word + "ay"
-  }
-}
+  //Add master function
 
-// function pigLatin(sentence) {
-//   // var newSentence = []
-//   var splitSentence = sentence.split(" ");
-//   console.log(splitSentence);
-//   for (var i = 0; i < splitSentence.length; i++) {
-//
-//    if(splitSentence[i].charAt(0) === "q") {
-//      var eachChar = splitSentence[i].split("");
-//      console.log(eachChar);
-//      eachChar.shift();
-//      console.log(eachChar);
-//      eachChar.push("way");
-//      splitSentence.push(eachChar.join(''));
-//    }
-  //   if (sentenceArray.charAt(0)includes(vowel)) {
-  //     sentenceArray.charAt(0) = "way"
-  //   }
-  //   return firstCharacter;
-// }
-//
-// return splitSentence
-// }
+  function determineIfVowel(word) {
+    if (word === "a" || word ===  "e"  || word ===  "i"  || word ===  "o"  || word ===  "u") {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+
+  function determineIfWordHasAVowel(word) {
+    var inputCharAt = word.charAt(0);
+
+    if (determineIfVowel(inputCharAt)) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+
+  function determineIfConstanants(word) {
+    var inputWordSplit = word.split("");
+    var splicedWord = inputWordSplit.splice(2);
+
+    for (var i = 0; i < 1; i++) {
+      if (determineIfVowel(inputWordSplit) === false) {
+      return splicedWord.join('') + "ay";
+      }
+    }
+    return word;
+  }
+
+  function addAyToEndOfSingleVowel(word) {
+    if (determineIfWordHasAVowel(word) === true) {
+     return word + "way"
+   } else {
+     return word;
+   }
+  }
+
 
 $(document).ready(function() {
   $("#userInput").submit(function(event) {
-
   console.log(determineIfVowel($("input#words").val()));
   console.log(determineIfWordHasAVowel($("input#words").val()));
+  console.log(determineIfConstanants($("input#words").val()));
   console.log(addAyToEndOfSingleVowel($("input#words").val()));
 
   event.preventDefault();
