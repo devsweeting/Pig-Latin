@@ -42,6 +42,12 @@ function determineIfWordHasAVowel(word) {
   }
 }
 
+function addAyToEndOfSingleVowel(word) {
+  if (determineIfVowel(word) === true) {
+   return word + "ay"
+  }
+}
+
 // function pigLatin(sentence) {
 //   // var newSentence = []
 //   var splitSentence = sentence.split(" ");
@@ -70,9 +76,8 @@ $(document).ready(function() {
 
   console.log(determineIfVowel($("input#words").val()));
   console.log(determineIfWordHasAVowel($("input#words").val()));
+  console.log(addAyToEndOfSingleVowel($("input#words").val()));
 
   event.preventDefault();
   });
-// var userSentence = pigLatin("The quick brown fox jumps over the lazy dog");
-// console.log(userSentence);
 });
