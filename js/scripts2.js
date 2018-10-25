@@ -1,31 +1,15 @@
-//- This program will recognize a vowel with a true/false statement.
-//     Input example: "a"
-//     Output Example: "true"
-//
-// - This program will recognize a vowel in a word with a true/false statement
-//     Input Example: "cat"
-//     Output Example: "true"
-//
-// - For words beginning with a vowel, add "way" to the end.
-//  Input Example: "apple"
-//  Output Example: "appleway"
-
-// -  For words beginning with one or more consonants, move all of the first consecutive consonants to the end, and add "ay".
-//     Input Example: Start
-//     Output Example: artstay
-//
-// -  If the first consonants include "qu", move the "u" along with the "q". Don't forget about words like "squeal" where "qu" doesn't come first!
-//     Input Example: squirt
-//     Output Example: irtsquay
-//
-// -  For words beginning with "y", treat "y" as a consonant.
-//     Input Example: your
-//     Output Example: ouyay
 
 var userArray = [];
+var vowels = ["a", "e", "i", "o", "u"]
 
+function determineIfVowel(word) {
+  var newWord = word.split()
+  for (var i = 0; i < word.length[1]; i++) {
+    if vowels.indexOf(newWord[i])
 
-  function determineIfVowel(word) ``{
+  }
+}
+  {
     if (word === "a" || word ===  "e"  || word ===  "i"  || word ===  "o"  || word ===  "u") {
       return true;
     }
