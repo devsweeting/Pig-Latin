@@ -22,9 +22,8 @@
 //     Input Example: your
 //     Output Example: ouyay
 
+var userArray = [];
 
-
-  //Add master function
 
   function determineIfVowel(word) {
     if (word === "a" || word ===  "e"  || word ===  "i"  || word ===  "o"  || word ===  "u") {
@@ -66,15 +65,30 @@
    }
   }
 
+  //Add master function
+  function masterFunction(word){
+    var splitSentence = word.split(" ")
+    console.log(splitSentence);
+    for (var i = 0; i < splitSentence.length; i++) {
+      if (determineIfVowel(splitSentence[i]) === true) {
+         userArray.push(addAyToEndOfSingleVowel(splitSentence[i]));
+      } else {
+        userArray.push(splitSentence[i])
+      }
+    }
+    return splitSentence;
+  }
 
 
 
 $(document).ready(function() {
   $("#userInput").submit(function(event) {
-  console.log(determineIfVowel($("input#words").val()));
-  console.log(determineIfWordHasAVowel($("input#words").val()));
-  console.log(determineIfConstanants($("input#words").val()));
-  console.log(addAyToEndOfSingleVowel($("input#words").val()));
+  console.log(masterFunction($("input#words").val()));
+  console.log(userArray.join(" "));
+
+  // console.log(determineIfWordHasAVowel($("input#words").val()));
+  // console.log(determineIfConstanants($("input#words").val()));
+  // console.log(addAyToEndOfSingleVowel($("input#words").val()));
 
   event.preventDefault();
   });
